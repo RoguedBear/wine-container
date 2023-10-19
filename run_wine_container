@@ -82,10 +82,12 @@ podman run \
     --volume /run/user/$LOCAL_UID/pipewire-0:/run/user/$LOCAL_UID/pipewire-0 \
     --volume /run/user/$LOCAL_UID/pulse:/run/user/$LOCAL_UID/pulse \
     --volume /run/user/$LOCAL_UID/wayland-0:/run/user/$LOCAL_UID/wayland-0 \
+    --volume /dev/dri:/dev/dri \
     --env DISPLAY="$DISPLAY" \
     --env WAYLAND_DISPLAY="$WAYLAND_DISPLAY" \
     --env PULSE_SERVER=/run/user/$LOCAL_UID/pulse/native \
     --security-opt label=type:container_runtime_t \
+    --device /dev/dri \
     --rm \
     -ti \
     "$IMAGE_NAME" \
